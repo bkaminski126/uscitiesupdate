@@ -25,7 +25,23 @@ function App() {
   const [inputVal, setInputVal] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  /* sorted ids */
+  let biggestIds = ids.sort(
+    (a, b) => uscities["population"][`${a}`] - uscities["population"][`${b}`]
+  );
+
   /* helpers */
+  function overPop(p) {
+    return Object.keys(c.city_ascii).filter(
+      (k) => uscities["population"][`${k}`] > p
+    );
+  }
+
+  /* other stats */
+  let pops = [1000000, 500000, 100000];
+  let overs = pops.map((p) => overPop(p).length);
+
+  //build stat here
 
   function checkNew() {
     //FIND CITY ID
@@ -76,7 +92,7 @@ function App() {
         <img
           onClick={() => setIsMenuOpen((m) => !m)}
           src={"./hamburger.png"}
-          className={"h-[28px]"}
+          className="cursor-pointer h-[28px]"
         />
       </div>
       {/* footer */}
@@ -109,7 +125,7 @@ function App() {
             .reduce((acc, cv) => acc + cv, 0)}
           <br />
           {Math.round(
-            (ids.map((id) => uscities["population"][`${id}`]) / totalpop) *
+            (ids.map((id) => uscities["population"][`${id}`]).reduce((acc, cv) => acc + cv, 0) / totalpop) *
               10000
           ) / 100}
           %
@@ -128,9 +144,12 @@ function App() {
         />
         {ids.map((id) => (
           <Circle
-            radius={Math.round(
-              uscities.population[`${id}`] / 300 +
-                Math.log10(uscities.population[`${id}`] / 100) * 5000
+            radius={Math.max(
+              Math.round(
+                uscities.population[`${id}`] / 300 +
+                  Math.log10(uscities.population[`${id}`] / 100) * 5000
+              ),
+              5000
             )}
             color="#ff0000"
             opacity={1}
