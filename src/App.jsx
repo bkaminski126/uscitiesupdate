@@ -21,7 +21,7 @@ function App() {
   const abbrnames = abbrs.filter(onlyUnique).sort();
 
   const totalpop = 331449281; //2020 census
-  const [ids, setIds] = useState([]);
+  const [ids, setIds] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 30, 120, 400, 6000]);
   const [inputVal, setInputVal] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -146,10 +146,10 @@ function App() {
           <Circle
             radius={Math.max(
               Math.round(
-                uscities.population[`${id}`] / 300 +
-                  Math.log10(uscities.population[`${id}`] / 100) * 5000
+                uscities.population[`${id}`] / 200 +
+                  Math.log10(uscities.population[`${id}`] / 100) * 8000
               ),
-              5000
+              8000
             )}
             color="#ff0000"
             opacity={1}
