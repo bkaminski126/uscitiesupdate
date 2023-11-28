@@ -9,7 +9,7 @@ export default function DataAccordion(props) {
   const [open, setOpen] = useState(0);
 
   /* sorted ids */
-  let smalls = ids.sort(
+  let smalls = ids.slice().sort(
     (a, b) => c["population"][`${a}`] - c["population"][`${b}`]
   );
   let bigs = smalls.slice().reverse().slice(0, 20);
@@ -24,9 +24,49 @@ export default function DataAccordion(props) {
   let pops = [1000000, 500000, 100000];
 
   return (
-    <div className="w-1/3 rounded-2xl bg-semiclear-white fixed top-[72px] right-0 z-10 p-5">
-      <div
+    <div className="md:w-1/3 md:rounded-2xl md:bg-semiclear-white fixed top-[72px] right-0 z-10 p-5
+    bg-white rounded-0 w-full h-full md:h-auto z-50">
+        <div
         className={`cursor-grab flex flex-row justify-between items-center " ${
+          open == 4 && "pb-5"
+        }`}
+        onClick={() => setOpen(open == 4 ? 0 : 4)}
+      >
+        <p className={"font-bold text-xl text-slate-800"}>My Cities</p>
+        {open == 4 ? (
+          <FontAwesomeIcon className={"h-[20px]"} icon={faAngleUp} />
+        ) : (
+          <FontAwesomeIcon className={"h-[20px]"} icon={faAngleDown} />
+        )}
+      </div>
+      <div>
+        {open == 4 && (
+          <div className="overflow-y-scroll h-[30vh]">
+            {ids.length == 0 ? (
+              <p className={"text-slate-600 text-md"}>
+                No cities yet... type below to grow your list!
+              </p>
+            ) : (
+              ids.slice().reverse().map((b, i) => (
+                <div key={"cities" + b} onClick={() => setPosition([c['lat'][b], c['lng'][b]])}>
+                  <p className={"text-lg text-slate-900"}>
+                    {ids.length - i}. {c["city_ascii"][b]}
+                  </p>
+                  <p
+                    className={`text-md text-slate-500 ${
+                      ids.length - i >= 10 ? "pl-[30px]" : "pl-[20px]"
+                    }`}
+                  >
+                    {c["state_name"][b]} ({c["population"][b].toLocaleString()})
+                  </p>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+      </div>
+      <div
+        className={`pt-5 cursor-grab flex flex-row justify-between items-center " ${
           open == 1 && "pb-5"
         }`}
         onClick={() => setOpen(open == 1 ? 0 : 1)}
@@ -40,7 +80,7 @@ export default function DataAccordion(props) {
       </div>
       <div>
         {open == 1 && (
-          <div className="overflow-y-scroll h-72">
+          <div className="overflow-y-scroll h-[30vh]">
             {ids.length == 0 ? (
               <p className={"text-slate-600 text-md"}>
                 No cities yet... type below to grow your list!
@@ -79,7 +119,7 @@ export default function DataAccordion(props) {
       </div>
       <div>
         {open == 2 && (
-          <div className="overflow-y-scroll h-72">
+          <div className="overflow-y-scroll h-[30vh]">
             {ids.length == 0 ? (
               <p className={"text-slate-600 text-md"}>
                 No cities yet... type below to grow your list!

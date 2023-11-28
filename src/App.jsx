@@ -31,7 +31,7 @@ function App() {
   );
   const [inputVal, setInputVal] = useState("");
   const [errEffect, setErrEffect] = useState(false);
-  const [accordionOpen, setAccordionOpen] = useState(true);
+  const [accordionOpen, setAccordionOpen] = useState(false);
   const [position, setPosition] = useState([37, -96]);
 
   function checkNew() {
@@ -79,14 +79,14 @@ function App() {
   return (
     <div className="font-nunito">
       {/* header */}
-      <div className="flex flex-row rounded-2xl w-full bg-clear-white fixed top-0 left-0 z-10 p-5">
+      <div className="flex flex-row md:ounded-2xl w-full bg-white rounded-0 md:bg-clear-white fixed top-0 left-0 z-10 p-5">
         <p className="font-bold w-full text-2xl">
           How many U.S. cities can you name?
         </p>
         <FontAwesomeIcon
           icon={faBars}
           onClick={() => setAccordionOpen((o) => o == 0)}
-          className="cursor-pointer h-[28px]"
+          className="cursor-pointer h-[28px] z-100"
         />
       </div>
       {/* clear/save button */}
@@ -107,7 +107,7 @@ function App() {
       </button>
 
       {/* footer */}
-      <div className="rounded-2xl w-60 w-[400px] fixed bottom-0 left-0 z-10 p-5">
+      <div className="rounded-2xl w-60 md:w-[500px] w-[80%] fixed bottom-0 left-0 z-10 p-5">
         <input
           value={inputVal}
           onKeyDown={function (e) {
