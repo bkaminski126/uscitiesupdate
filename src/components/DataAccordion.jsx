@@ -192,8 +192,10 @@ export default function DataAccordion(props) {
       <div>
         {open == 3 && (
           <div>
-            <p className='text-xl italic font-semibold'>You've named...</p>
-            <p>{ids.filter((v) => v < 100).length} out of the 100 largest cities</p>
+            <p className="text-xl italic font-semibold">You've named...</p>
+            <p>
+              {ids.filter((v) => v < 100).length} out of the 100 largest cities
+            </p>
             <p>
               {caps.filter((value) => ids.includes(value)).length} of{" "}
               {caps.length} capitals {ids.includes(8) && " + Washington, DC"}
@@ -207,6 +209,12 @@ export default function DataAccordion(props) {
             ))}
           </div>
         )}
+      </div>
+      <div className={"pt-5 text-sm text-center"}>
+        <p>
+          by Brandon Kaminski
+          <br />a redesign of <a className='text-blue-700 hover:text-blue-500' href="https://cityquiz.io" target="_blank" rel="noreferrer">Ian Fisher's original</a>
+        </p>
       </div>
     </div>
   );
