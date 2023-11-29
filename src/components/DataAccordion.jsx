@@ -37,7 +37,7 @@ export default function DataAccordion(props) {
 
   return (
     <div
-      className="md:w-1/3 md:rounded-2xl md:bg-semiclear-white fixed top-[72px] right-0 z-10 p-5
+      className="md:w-1/3 md:rounded-2xl md:bg-semiclear-white fixed top-20 right-0 z-10 p-5
     bg-white rounded-0 w-full h-full md:h-auto z-50"
     >
       <div
