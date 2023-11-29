@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="font-nunito">
       {/* header */}
-      <div className="flex flex-row md:ounded-2xl w-full bg-white rounded-0 md:bg-clear-white fixed top-0 left-0 z-10 p-5">
+      <div className="flex flex-row md:rounded-2xl w-full bg-white rounded-0 md:bg-clear-white fixed top-0 left-0 z-10 p-5">
         <p className="font-bold w-full text-2xl">
           How many U.S. cities can you name?
         </p>
@@ -131,14 +131,14 @@ function App() {
         />
       </div>
       {/* stats */}
-      <div className="font-bold flex flex-row rounded-2xl w-60 w-[400px] bg-clear-white fixed top-[72px] left-0 z-10 p-5">
-        <p className="w-3/4 text-left text-base">
+      <div className="font-bold flex flex-row rounded-2xl w-60 w-[350px] bg-clear-white fixed top-[72px] left-0 z-10 p-5">
+        <p className="text-left text-base">
           number of cities named:
           <br />
           combined population:
           <br />% of country population:
         </p>
-        <p className="text-blue-700 w-1/4 text-right text-base">
+        <p className="text-blue-700 text-right text-base">
           {ids.length.toLocaleString()}
           <br />
           {ids
