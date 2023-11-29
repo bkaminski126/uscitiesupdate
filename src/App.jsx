@@ -10,6 +10,7 @@ import { useCookies } from "react-cookie";
 function App() {
   //INIT CONSTANTS
   const c = uscities;
+
   // const clen = Object.keys(c.city_ascii).length; //30k atm
   const citynames = Array.from(Object.values(c.city_ascii));
 
@@ -80,13 +81,13 @@ function App() {
     <div className="font-nunito">
       {/* header */}
       <div className="flex flex-row md:rounded-2xl w-full bg-white rounded-0 md:bg-clear-white fixed top-0 left-0 z-10 p-5">
-        <p className="font-bold w-full text-2xl">
+        <p className="font-bold w-full text-lg md:text-2xl">
           How many U.S. cities can you name?
         </p>
         <FontAwesomeIcon
           icon={faBars}
           onClick={() => setAccordionOpen((o) => o == 0)}
-          className="cursor-pointer h-[28px] z-100"
+          className="cursor-pointer h-[18px] md:h-[28px] z-100"
         />
       </div>
       {/* clear/save button */}
