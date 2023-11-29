@@ -132,7 +132,7 @@ function App() {
         />
       </div>
       {/* stats */}
-      <div className="font-bold flex flex-row rounded-2xl w-60 w-[350px] bg-clear-white fixed top-20 left-0 z-10 p-5">
+      <div className="font-bold flex flex-row rounded-2xl w-60 w-[350px] bg-clear-white fixed top-12 md:top-20 left-0 z-10 p-5">
         <p className="text-left text-base">
           number of cities named:
           <br />
